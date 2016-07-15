@@ -1,0 +1,66 @@
+package com.mr.site.bean;
+
+/**
+ * 网址实体类
+ * 
+ * @author gaohailong
+ * @version 1.0
+ * @data 2016.7.5
+ */
+public class Site {
+	private int id;
+	private String name;
+	private String link;
+	private String categeory;
+	private String date;
+	private int frequency;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getLink() {
+		return link;
+	}
+
+	public void setLink(String link) {
+		this.link = link;
+	}
+
+	public String getCategeory() {
+		return categeory;
+	}
+
+	public void setCategeory(String categeory) {
+		this.categeory = categeory;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public int getFrequency() {
+		return frequency;
+	}
+
+	public void setFrequency(int frequency) {
+		this.frequency = frequency;
+	}
+
+}

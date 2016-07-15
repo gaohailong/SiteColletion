@@ -1,0 +1,2 @@
+======方式======	    =========================ip地址=================
+	  GET			http://localhost:8080/SiteColletion/SiteServlet?  
