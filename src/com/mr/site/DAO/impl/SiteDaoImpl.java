@@ -5,12 +5,24 @@ import java.util.List;
 import com.mr.site.DAO.SiteDao;
 import com.mr.site.bean.Site;
 
-public class SiteDaoImpl extends BaseDao<Site> implements SiteDao{
+public class SiteDaoImpl extends BaseDao<Site> implements SiteDao {
 
 	@Override
 	public List<Site> getAllName(int id) {
-		String sql = "select name from site where categeory = ?";
+		String sql = "select * from site where categeory = ?";
 		return queryForList(sql, id);
 	}
-	
+
+	@Override
+	public List<Site> getAllName() {
+		String sql = "select * from site";
+		return queryForList(sql);
+	}
+
+	@Override
+	public void counterAdd(int id) {
+		String sql = "update site set frequency=(frequency+1) where id=?";
+		update(sql,id);
+	}
+
 }

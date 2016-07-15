@@ -1,5 +1,7 @@
 package com.mr.site.bean;
 
+import java.io.Serializable;
+
 /**
  * 网址实体类
  * 
@@ -7,11 +9,15 @@ package com.mr.site.bean;
  * @version 1.0
  * @data 2016.7.5
  */
-public class Site {
+public class Site implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private String name;
 	private String link;
-	private String categeory;
+	private int categeory;
 	private String date;
 	private int frequency;
 
@@ -39,11 +45,11 @@ public class Site {
 		this.link = link;
 	}
 
-	public String getCategeory() {
+	public int getCategeory() {
 		return categeory;
 	}
 
-	public void setCategeory(String categeory) {
+	public void setCategeory(int categeory) {
 		this.categeory = categeory;
 	}
 

@@ -1,6 +1,5 @@
 package com.mr.site.test;
 
-
 import java.util.List;
 
 import org.junit.Test;
@@ -13,12 +12,18 @@ public class SiteServiceTest {
 	private SiteDao siteDao = new SiteDaoImpl();
 
 	@Test
-	public void testGetName() {
+	public void testGetDataById() {
 		List<Site> sites = siteDao.getAllName(1);
-//		List<String> siteName = new ArrayList<String>();
 		for (Site site : sites) {
-			String name = site.getName();
-			System.out.println(name);
+			System.out.println(site.toString());
+		}
+	}
+
+	@Test
+	public void testGetData() {
+		List<Site> sites = siteDao.getAllName();
+		for(int i=0;i<sites.size();i++){
+			System.out.println(sites.get(i).toString());
 		}
 	}
 

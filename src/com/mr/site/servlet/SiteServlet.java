@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mr.site.bean.Site;
 import com.mr.site.service.ISiteService;
 import com.mr.site.service.impl.SiteService;
 
@@ -32,9 +33,39 @@ public class SiteServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		List<String> siteName = iSiteService.getSiteNameData(1);
-		JSONArray jsonArray = JSONArray.fromObject(siteName);
-		response.getWriter().print(jsonArray);
+		String method = request.getParameter("method");
+		switch (method) {
+		case "all":
+			getAll(request, response);
+			break;
+		case "counter":
+			counter(request, response);
+			break;
+		default:
+			break;
+		}
 	}
 
+	/**
+	 * 获取所有的数据
+	 */
+	public void getAll(HttpServletRequest request, HttpServletResponse response) {
+		List<Site> siteName = iSiteService.getSiteData();
+		JSONArray jsonArray = JSONArray.fromObject(siteName);
+		try {
+			response.getWriter().print(jsonArray);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 设置点击总数
+	 * @param request
+	 * @param response
+	 */
+	private void counter(HttpServletRequest request, HttpServletResponse response) {
+		String id= request.getParameter("id");
+		iSiteService.setCounter(Integer.parseInt(id));
+	}
 }

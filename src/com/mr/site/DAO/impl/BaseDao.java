@@ -27,7 +27,14 @@ public class BaseDao<T> implements DAO<T> {
 
 	@Override
 	public void update(String sql, Object... objects) {
-
+		Connection connection = null;
+		try {
+			connection = JDBCUtils.getConnetion();
+			queryRunner.update(connection, sql, objects);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			JDBCUtils.release(connection);
+		}
 	}
 
 	@Override
