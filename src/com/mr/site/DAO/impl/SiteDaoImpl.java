@@ -22,7 +22,13 @@ public class SiteDaoImpl extends BaseDao<Site> implements SiteDao {
 	@Override
 	public void counterAdd(int id) {
 		String sql = "update site set frequency=(frequency+1) where id=?";
-		update(sql,id);
+		update(sql, id);
+	}
+
+	@Override
+	public void addSite(String name, String link, int categeory) {
+		String sql = "insert into site (name,link,categeory) values ( ?, ?, ?)";
+		insertNoReturn(sql, name, link, categeory);
 	}
 
 }

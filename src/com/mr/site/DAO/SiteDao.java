@@ -18,10 +18,14 @@ public interface SiteDao {
 	 * @return
 	 */
 	List<Site> getAllName();
-	
+
 	/**
 	 * 设置点击次数
 	 */
-	
 	void counterAdd(int id);
+
+	/**
+	 * 添加网址
+	 */
+	void addSite(String name,String link,int categeory);
 }

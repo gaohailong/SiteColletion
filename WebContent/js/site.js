@@ -26,7 +26,7 @@ function counter(id){
 	$.ajax({
         type: "GET",
         url: "/SiteColletion/SiteServlet?method=counter",
-        dataType:"JSON",
+        dataType:"text",
         data:data,
         success: function () {
         },
@@ -34,24 +34,11 @@ function counter(id){
             alert("发生错误" + jqXHR.status);
         }
     });
-	
-	/*$.ajax({
-		type:"GET",
-		url:"/SiteColletion/SiteServlet?method=counter",
-		dataType:"JSON",
-		data:data,
-		success: function (){
-			alert("成功");
-		},
-		error: function(jqXHR){
-			alert("发生错误" + jqXHR.status);
-		}
-	});*/
 }
 
 //设置添加网站的点击事件
 $(".add").click(function(){
-	
+	$(".pop").css("display","block");
 });
 
 //设置居中的方法

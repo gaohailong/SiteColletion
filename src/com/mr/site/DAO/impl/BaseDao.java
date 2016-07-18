@@ -22,6 +22,28 @@ public class BaseDao<T> implements DAO<T> {
 
 	@Override
 	public long insert(String sql, Object... objects) {
+		/*Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		try {
+			connection = JDBCUtils.getConnetion();
+			preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			if (objects != null) {
+				for (int i = 0; i < objects.length; i++) {
+					preparedStatement.setObject(i + 1, objects[i]);
+				}
+			}
+			preparedStatement.executeUpdate();
+			resultSet = preparedStatement.getGeneratedKeys();
+			if (resultSet.next()) {
+				id = resultSet.getLong(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			JDBCUtils.release(connection);
+		} finally {
+			JDBCUtils.release(resultSet, preparedStatement);
+		}*/
 		return 0;
 	}
 
@@ -66,6 +88,18 @@ public class BaseDao<T> implements DAO<T> {
 			JDBCUtils.release(connection);
 		}
 		return null;
+	}
+
+	@Override
+	public void insertNoReturn(String sql, Object... objects) {
+		Connection connection = null;
+		try {
+			connection = JDBCUtils.getConnetion();
+			queryRunner.update(connection, sql, objects);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			JDBCUtils.release(connection);
+		}
 	}
 
 }

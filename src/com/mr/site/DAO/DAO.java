@@ -18,6 +18,13 @@ public interface DAO<T> {
 	long insert(String sql, Object... objects);
 	
 	/**
+	 * 插入一个数据
+	 * @param sql
+	 * @param objects
+	 */
+	void insertNoReturn(String sql, Object... objects);
+	
+	/**
 	 * 更改一个数据
 	 * @param sql
 	 * @param objects

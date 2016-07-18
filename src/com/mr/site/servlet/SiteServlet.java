@@ -41,6 +41,9 @@ public class SiteServlet extends HttpServlet {
 		case "counter":
 			counter(request, response);
 			break;
+		case "addSite":
+			addSite(request, response);
+			break;
 		default:
 			break;
 		}
@@ -58,14 +61,32 @@ public class SiteServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
-	
+
+	/**
+	 * 添加网址
+	 * 
+	 * @param request
+	 * @param response
+	 */
+	private void addSite(HttpServletRequest request, HttpServletResponse response) {
+		String name = request.getParameter("name");
+		String link = request.getParameter("link");
+		String categeory = request.getParameter("categeory");
+		iSiteService.addSite(name, link, categeory);
+	}
+
 	/**
 	 * 设置点击总数
+	 * 
 	 * @param request
 	 * @param response
 	 */
 	private void counter(HttpServletRequest request, HttpServletResponse response) {
-		String id= request.getParameter("id");
-		iSiteService.setCounter(Integer.parseInt(id));
+		try {
+			String id = request.getParameter("id");
+			iSiteService.setCounter(Integer.parseInt(id));
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		}
 	}
 }

@@ -13,11 +13,10 @@ public class SiteService implements ISiteService {
 	@Override
 	public List<Site> getSiteData(int id) {
 		List<Site> sites = siteDao.getAllName(id);
-		/*List<String> siteName = new ArrayList<String>();
-		for (Site site : sites) {
-			String name = site.getName();
-			siteName.add(name);
-		}*/
+		/*
+		 * List<String> siteName = new ArrayList<String>(); for (Site site :
+		 * sites) { String name = site.getName(); siteName.add(name); }
+		 */
 		return sites;
 	}
 
@@ -26,10 +25,20 @@ public class SiteService implements ISiteService {
 		List<Site> sites = siteDao.getAllName();
 		return sites;
 	}
-	
+
 	@Override
 	public void setCounter(int id) {
 		siteDao.counterAdd(id);
 	}
-	
+
+	@Override
+	public void addSite(String name, String link, String categeory) {
+		try {
+			int categeoryNum = Integer.valueOf(categeory);
+			siteDao.addSite(name, link, categeoryNum);
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		}
+	}
+
 }
