@@ -81,6 +81,14 @@ $(".p_submit").click(function() {
 	});
 });
 
+//设置点击添加网站按钮的位置
+function setRight() {
+	var _left = ($(window).width() - $(".pop").width()) / (6/8);
+	$(".add").css({
+		left : _left
+	});
+}
+
 // 设置居中的方法
 function setCenter() {
 	var _top = ($(window).height() - $(".pop").height()) / 2;

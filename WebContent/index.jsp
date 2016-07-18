@@ -118,7 +118,7 @@
     </div>
 </div>
 
-<button class="add" id="add_site" value="add">ADD</button>
+<div class="add" id="add_site" value="add">ADD</div>
 
 <div class="pop">
     <div class="p_top">
