@@ -73,7 +73,21 @@ $(".p_submit").click(function() {
 		dataType : "text",
 		data : data,
 		success : function() {
-			alert("成功");
+			alert("添加成功");
+			$(".pop").css("display", "none");
+		/*	if (categeory == 1) {
+				$("#android").append(
+						"<li><a href='" + link
+								+ "' onclick='counter(" + id
+								+ ")' target='_blank'>"
+								+ name + "</a></li>");
+			} else if (categeory == 2) {
+				$("#JavaWeb").append(
+						"<li><a href='" + link
+								+ "' onclick='counter(" + id
+								+ ")' target='_blank'>"
+								+ name + "</a></li>");
+			}*/
 		},
 		error : function(jqXHR) {
 			alert("发生错误" + jqXHR.status);
@@ -81,9 +95,9 @@ $(".p_submit").click(function() {
 	});
 });
 
-//设置点击添加网站按钮的位置
+// 设置点击添加网站按钮的位置
 function setRight() {
-	var _left = ($(window).width() - $(".pop").width()) / (6/8);
+	var _left = ($(window).width() - $(".pop").width()) / (6 / 8);
 	$(".add").css({
 		left : _left
 	});
@@ -96,5 +110,16 @@ function setCenter() {
 	$(".pop").css({
 		top : _top,
 		left : _left
+	});
+}
+
+// 显示灰色 jQuery 遮罩层
+function showBg() {
+	var bh = $("body").height();
+	var bw = $("body").width();
+	$("#fullbg").css({
+		height : bh,
+		width : bw,
+		display : "block"
 	});
 }
