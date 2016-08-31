@@ -3,6 +3,7 @@ package com.mr.site.DAO.impl;
 import java.util.List;
 
 import com.mr.site.DAO.SiteDao;
+import com.mr.site.bean.CollectionType;
 import com.mr.site.bean.Site;
 
 public class SiteDaoImpl extends BaseDao<Site> implements SiteDao {
@@ -30,5 +31,7 @@ public class SiteDaoImpl extends BaseDao<Site> implements SiteDao {
 		String sql = "insert into site (name,link,categeory) values ( ?, ?, ?)";
 		insertNoReturn(sql, name, link, categeory);
 	}
+
+	
 
 }

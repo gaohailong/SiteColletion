@@ -49,9 +49,21 @@ function counter(id) {
 
 // 设置添加网站的点击事件
 $(".add").click(function() {
+	//TODO 测试未完成
+	$.ajax({
+		type : "GET",
+		url :"/SiteColletion/SiteServlet?method=getCollectType",
+		dataType : "json",
+		data : data,
+		success : function(){
+			alert("test");
+		}
+		
+	});
 	$(".pop").css("display", "block");
 	setCenter()
 });
+
 // 点击关闭
 $(".p_close").click(function() {
 	$(".pop").css("display", "none");

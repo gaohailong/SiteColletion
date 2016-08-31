@@ -9,8 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mr.site.bean.CollectionType;
 import com.mr.site.bean.Site;
+import com.mr.site.service.ICollectionTypeService;
 import com.mr.site.service.ISiteService;
+import com.mr.site.service.impl.CollectionTypeService;
 import com.mr.site.service.impl.SiteService;
 
 import net.sf.json.JSONArray;
@@ -25,6 +28,7 @@ import net.sf.json.JSONArray;
 public class SiteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ISiteService iSiteService = new SiteService();
+	private ICollectionTypeService iCollectionTypeService = new CollectionTypeService();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -43,6 +47,9 @@ public class SiteServlet extends HttpServlet {
 			break;
 		case "addSite":
 			addSite(request, response);
+			break;
+		case "getCollectType":
+			getCollectType(request, response);
 			break;
 		default:
 			break;
@@ -86,6 +93,22 @@ public class SiteServlet extends HttpServlet {
 			String id = request.getParameter("id");
 			iSiteService.setCounter(Integer.parseInt(id));
 		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * 获得收藏分类
+	 * 
+	 * @param request
+	 * @param response
+	 */
+	private void getCollectType(HttpServletRequest request, HttpServletResponse response) {
+		List<CollectionType> list = iCollectionTypeService.getAllType();
+		JSONArray jsonArray = JSONArray.fromObject(list);
+		try {
+			response.getWriter().print(jsonArray);
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}

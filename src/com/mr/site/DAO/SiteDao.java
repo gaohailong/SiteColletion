@@ -27,5 +27,7 @@ public interface SiteDao {
 	/**
 	 * 添加网址
 	 */
-	void addSite(String name,String link,int categeory);
+	void addSite(String name, String link, int categeory);
+
+	
 }
