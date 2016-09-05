@@ -49,16 +49,17 @@ function counter(id) {
 
 // 设置添加网站的点击事件
 $(".add").click(function() {
-	//TODO 测试未完成
 	$.ajax({
 		type : "GET",
-		url :"/SiteColletion/SiteServlet?method=getCollectType",
-		dataType : "json",
-		data : data,
-		success : function(){
-			alert("test");
+		url : "/SiteColletion/SiteServlet?method=getCollectType",
+		dataType : "JSON",
+		success : function(data) {
+			$(data).each(function(index,value) {
+				$(".p_categeory").append(
+					"<option value='"+value.id+"'>"+value.type+"</option>"
+				)
+			});
 		}
-		
 	});
 	$(".pop").css("display", "block");
 	setCenter()
@@ -73,38 +74,46 @@ $(".p_close").click(function() {
 $(".p_submit").click(function() {
 	var name = $(".p_name").val();
 	var link = $(".p_link").val();
-	var categeory = $(".p_categeory").val();
+	var categeory;
+
+	$(".p_categeory :selected").each(function(){
+		categeory=this.value;
+	});
+	
 	var data = {
 		"name" : name,
 		"link" : link,
 		"categeory" : categeory
 	};
-	$.ajax({
-		type : "GET",
-		url : "/SiteColletion/SiteServlet?method=addSite",
-		dataType : "text",
-		data : data,
-		success : function() {
-			alert("添加成功");
-			$(".pop").css("display", "none");
-		/*	if (categeory == 1) {
-				$("#android").append(
-						"<li><a href='" + link
-								+ "' onclick='counter(" + id
-								+ ")' target='_blank'>"
-								+ name + "</a></li>");
-			} else if (categeory == 2) {
-				$("#JavaWeb").append(
-						"<li><a href='" + link
-								+ "' onclick='counter(" + id
-								+ ")' target='_blank'>"
-								+ name + "</a></li>");
-			}*/
-		},
-		error : function(jqXHR) {
-			alert("发生错误" + jqXHR.status);
-		}
-	});
+	
+	if(name==""){
+		alert("名称不能为空！");
+	} else if (link==""){
+		alert("链接不能为空！");
+	} else if (categeory==""){
+		alert("分类不能为空！");
+	} else {
+		$.ajax({
+			type : "GET",
+			url : "/SiteColletion/SiteServlet?method=addSite",
+			dataType : "text",
+			data : data,
+			success : function() {
+				alert("添加成功");
+				$(".pop").css("display", "none");
+				/*
+				 * if (categeory == 1) { $("#android").append( "<li><a href='" +
+				 * link + "' onclick='counter(" + id + ")' target='_blank'>" + name + "</a></li>"); }
+				 * else if (categeory == 2) { $("#JavaWeb").append( "<li><a
+				 * href='" + link + "' onclick='counter(" + id + ")'
+				 * target='_blank'>" + name + "</a></li>"); }
+				 */
+			},
+			error : function(jqXHR) {
+				alert("发生错误" + jqXHR.status);
+			}
+		});
+	}
 });
 
 // 设置点击添加网站按钮的位置

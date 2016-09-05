@@ -107,6 +107,7 @@ public class SiteServlet extends HttpServlet {
 		List<CollectionType> list = iCollectionTypeService.getAllType();
 		JSONArray jsonArray = JSONArray.fromObject(list);
 		try {
+			System.out.println();
 			response.getWriter().print(jsonArray);
 		} catch (IOException e) {
 			e.printStackTrace();

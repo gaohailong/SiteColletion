@@ -31,7 +31,5 @@ public class SiteDaoImpl extends BaseDao<Site> implements SiteDao {
 		String sql = "insert into site (name,link,categeory) values ( ?, ?, ?)";
 		insertNoReturn(sql, name, link, categeory);
 	}
-
 	
-
 }

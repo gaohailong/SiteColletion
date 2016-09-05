@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="js/jquery-1.11.3.js"></script>
-
     <link href="css/site.css" rel="stylesheet">
 </head>
 <body onload="onload()">
@@ -118,7 +117,7 @@
     </div>
 </div>
 
-<div class="add" id="add_site" value="add">ADD</div>
+<div class="add" id="add_site">ADD</div>
 
 <div class="pop">
     <div class="p_top">
@@ -127,7 +126,9 @@
     </div>
     <input class="p_name" type="text" name="name" placeholder="名称"/><br>
     <input class="p_link" type="text" name="link" placeholder="网址"/><br>
-    <input class="p_categeory" type="text" name="categeory" placeholder="分类"/><br>
+   <!--  <input class="p_categeory" type="text" name="categeory" placeholder="分类"/><br> -->
+    <select class="p_categeory">	
+    </select>
     <input class="p_submit" id="p_submit" type="button" value="提交"/>
 </div>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/site.js"></script>

@@ -10,5 +10,6 @@ public class CollectionTypeTest {
 	@Test
 	public void testGetAllType(){
 		System.out.println(service.getAllType().size()); 
+		System.out.println(service.getAllType().get(1).getId()); 
 	}
 }
