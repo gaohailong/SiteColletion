@@ -26,6 +26,27 @@ function onload() {
 			alert("发生错误" + jqXHR.status);
 		}
 	});
+	
+	$.ajax({
+		type : "GET",
+		url : "/SiteColletion/SiteServlet?method=getCommonSite",
+		dataType : "JSON",
+		success : function(data){
+			$(data).each(
+					function(index,value){
+						$("#comment_site").append(
+								"<li><a href='"+value.link
+									+"' onclick='counter(" + value.id
+									+")' target='_blank'>"
+									+value.name+"</a></li>"
+						);
+					
+					});
+		},
+		error : function(jqXHR){
+			alert("发生错误" + jqXHR.status);
+		}
+	});
 }
 
 // 设置计数器
@@ -115,6 +136,7 @@ $(".p_submit").click(function() {
 		});
 	}
 });
+
 
 // 设置点击添加网站按钮的位置
 function setRight() {

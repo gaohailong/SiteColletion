@@ -5,7 +5,7 @@
   <named-config name="siteColletion"> 
   
   	<property name="user">root</property>
-    <property name="password">jxf74521</property>
+    <property name="password">123456</property>
     <property name="jdbcUrl">jdbc:mysql:///site_collection</property>
     <property name="driverClass">com.mysql.jdbc.Driver</property>
   

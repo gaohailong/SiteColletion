@@ -1,2 +1,7 @@
-======方式======	    =========================ip地址=================
-	  GET			http://localhost:8080/SiteColletion/SiteServlet?  
+======方式======	    =========================ip地址===========         =============作用=========
+	  基本url			http://localhost:8080/  
+	  GET          	/SiteColletion/SiteServlet?method=all                  获取所有的网址数据
+	  GET           /SiteColletion/SiteServlet?method=counter              点击计数器
+	  GET			/SiteColletion/SiteServlet?method=getCollectType	      搜藏类型的获取
+	  GET           /SiteColletion/SiteServlet?method=addSite              添加搜藏的网址
+	  

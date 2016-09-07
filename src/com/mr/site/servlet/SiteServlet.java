@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.mr.site.bean.CollectionType;
 import com.mr.site.bean.Site;
 import com.mr.site.service.ICollectionTypeService;
+import com.mr.site.service.ICommonSiteService;
 import com.mr.site.service.ISiteService;
 import com.mr.site.service.impl.CollectionTypeService;
+import com.mr.site.service.impl.CommonSiteService;
 import com.mr.site.service.impl.SiteService;
 
 import net.sf.json.JSONArray;
@@ -29,6 +31,7 @@ public class SiteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ISiteService iSiteService = new SiteService();
 	private ICollectionTypeService iCollectionTypeService = new CollectionTypeService();
+	private ICommonSiteService iCommonSiteService=new CommonSiteService();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -51,6 +54,8 @@ public class SiteServlet extends HttpServlet {
 		case "getCollectType":
 			getCollectType(request, response);
 			break;
+		case "getCommonSite":
+			getCommonSite(request,response);
 		default:
 			break;
 		}
@@ -107,10 +112,25 @@ public class SiteServlet extends HttpServlet {
 		List<CollectionType> list = iCollectionTypeService.getAllType();
 		JSONArray jsonArray = JSONArray.fromObject(list);
 		try {
-			System.out.println();
 			response.getWriter().print(jsonArray);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * 获取常用网址分类
+	 * @param request
+	 * @param response
+	 */
+	private void getCommonSite(HttpServletRequest request, HttpServletResponse response) {
+		List<Site> list= iCommonSiteService.getCommonSite();
+		JSONArray jsonArray= JSONArray.fromObject(list);
+		try {
+			response.getWriter().print(jsonArray);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 }

@@ -11,11 +11,11 @@
 <body onload="onload()">
 <div class="header">
     <ul>
+        <li><a href="#">网站收藏</a></li>
+     <!--    <li><a href="#">Site</a></li>
         <li><a href="#">Site</a></li>
         <li><a href="#">Site</a></li>
-        <li><a href="#">Site</a></li>
-        <li><a href="#">Site</a></li>
-        <li><a href="#">Site</a></li>
+        <li><a href="#">Site</a></li> -->
     </ul>
 </div>
 <div class="content">
@@ -23,19 +23,11 @@
         <div class="site_item">
             <h4 class="category_name">Android</h4>
             <ul id="android">
-               <!--  <li><a href="#">CSDN</a></li>
-                <li><a href="#">微软</a></li>
-                <li><a href="#">得到</a></li>
-                <li><a href="#">微软</a></li> -->
             </ul>
         </div>
       <div class="site_item">
             <h4 class="category_name">JavaWeb</h4>
             <ul id="JavaWeb">
-              <!--   <li><a href="#">CSDN</a></li>
-                <li><a href="#">微软</a></li>
-                <li><a href="#">得到</a></li>
-                <li><a href="#">微软</a></li> -->
             </ul>
         </div>
        <!--    <div class="site_item">
@@ -51,6 +43,15 @@
     <div class="site_right">
         <div class="site_block">
             <div class="s_first">
+                <h4 class="s_category_name">常用网站</h4>
+                <ul id="comment_site">
+                   <!--  <li><a href="#">CSDN</a></li>
+                    <li><a href="#">微软</a></li>
+                    <li><a href="#">得到</a></li>
+                    <li><a href="#">微软</a></li> -->
+                </ul>
+            </div>
+           <!--  <div class="s_first">
                 <h4 class="s_category_name">Android</h4>
                 <ul>
                     <li><a href="#">CSDN</a></li>
@@ -103,16 +104,7 @@
                     <li><a href="#">得到</a></li>
                     <li><a href="#">微软</a></li>
                 </ul>
-            </div>
-            <div class="s_first">
-                <h4 class="s_category_name">Android</h4>
-                <ul>
-                    <li><a href="#">CSDN</a></li>
-                    <li><a href="#">微软</a></li>
-                    <li><a href="#">得到</a></li>
-                    <li><a href="#">微软</a></li>
-                </ul>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
@@ -127,9 +119,11 @@
     <input class="p_name" type="text" name="name" placeholder="名称"/><br>
     <input class="p_link" type="text" name="link" placeholder="网址"/><br>
    <!--  <input class="p_categeory" type="text" name="categeory" placeholder="分类"/><br> -->
-    <select class="p_categeory">	
-    </select>
-    <input class="p_submit" id="p_submit" type="button" value="提交"/>
+   <div>
+	    <select class="p_categeory">	
+	    </select>
+	    <input class="p_submit" id="p_submit" type="button" value="提交"/>
+    </div>
 </div>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/site.js"></script>
 </body>
